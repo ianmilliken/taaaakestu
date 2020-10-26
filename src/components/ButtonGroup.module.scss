@@ -1,0 +1,21 @@
+@import '../styles/vars.scss';
+
+.buttonGroup {
+  display: inline-flex;
+
+  & > button {
+    font-size: $bodySizeS;
+    border: 0.1rem solid $colorBlackberry;
+    border-radius: 0;
+    background-color: transparent;
+
+    &:disabled {
+      color: $colorPurpleOpacity;
+      opacity: 1;
+    }
+
+    & + button {
+      margin-left: -0.1rem !important;
+    }
+  }
+}

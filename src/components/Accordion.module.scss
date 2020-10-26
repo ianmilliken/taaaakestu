@@ -1,0 +1,16 @@
+@import '../styles/vars.scss';
+
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4em 0.6em;
+  background-color: $colorBlackberry;
+  color: white;
+  cursor: pointer;
+
+  &Title {
+    font-size: $bodySizeM;
+    font-weight: 400;
+  }
+}

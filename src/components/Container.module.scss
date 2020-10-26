@@ -1,0 +1,29 @@
+@import '../styles/vars.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col {
+  &Header {
+    grid-column: 1 / 13;
+    display: flex;
+    align-items: center;
+    height: 10rem;
+    padding: 4rem;
+    background-color: white;
+    border-bottom: 0.1rem solid $colorBorder;
+  }
+
+  &Main {
+    grid-column: 3 / 11;
+  }
+
+  &Subgrid {
+    display: inline-grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    width: 100%;
+  }
+}

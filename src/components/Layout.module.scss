@@ -1,0 +1,66 @@
+@import '../styles/vars.scss';
+
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 20rem 1fr;
+  height: 100vh;
+
+  &Sidebar {
+    background-color: white;
+    border-right: 0.1rem solid $colorBorder;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  border-bottom: 0.1rem solid $colorBorder;
+
+  & > img {
+    width: 4rem;
+    height: auto;
+  }
+}
+
+.navbar {
+  font-size: $bodySizeXs;
+
+  & > h5 {
+    padding: $gapXl 1em 1em;
+  }
+
+  &Link {
+    display: block;
+    padding: 1.2em 1em;
+    margin-left: 1em;
+    text-decoration: none;
+    color: $colorBlackberry;
+
+    &:hover {
+      background-color: darken($colorWhitePurple, 2%);
+    }
+
+    &Active {
+      position: relative;
+      background-color: $colorWhitePurple;
+      border-left: 0.1rem solid $colorBorder;
+      border-top: 0.1rem solid $colorBorder;
+      border-bottom: 0.1rem solid $colorBorder;
+      border-top-left-radius: $radiusButton;
+      border-bottom-left-radius: $radiusButton;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -0.1rem;
+        height: 100%;
+        width: 0.1rem;
+        background-color: $colorWhitePurple;
+      }
+    }
+  }
+}

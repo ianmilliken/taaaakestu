@@ -1,0 +1,19 @@
+@import '../styles/vars.scss';
+
+.card {
+  background-color: white;
+  border: 0.1rem solid transparent;
+  border-top: 0;
+  border-color: #e3e8ed;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.05);
+
+  & > header {
+    padding: 0.6em 1em;
+    border-bottom: 0.1rem solid $colorBorder;
+  }
+
+  & > section {
+    padding: 1em;
+  }
+}

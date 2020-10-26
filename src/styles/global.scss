@@ -1,0 +1,131 @@
+* {
+  &:focus {
+    position: relative;
+    z-index: 1;
+    outline: transparentize($colorRaspberry, 0.5) double 0.2rem;
+  }
+}
+
+html {
+  /* The golden rule */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $bodyFamily;
+  font-size: $bodySizeM;
+  line-height: 1;
+  background-color: $colorWhitePurple;
+  color: $colorBlackberry;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headingsFamily;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: $h1Size;
+}
+
+h2 {
+  font-size: $h2Size;
+}
+
+h3 {
+  font-size: $h3Size;
+}
+
+h4 {
+  font-size: $h4Size;
+}
+
+h5 {
+  font-size: $h5Size;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p {
+  margin-top: 1em;
+}
+
+p + p {
+  margin-top: $gapXs;
+}
+
+a {
+  font-weight: 600;
+  color: $colorRaspberry;
+
+  &:hover {
+    color: darken($colorRaspberry, 10%);
+  }
+}
+
+input {
+  border: 1px solid $colorBlackberry;
+  font-size: $bodySizeS;
+  color: $colorBlackberry;
+}
+
+input[type=text],
+input[type=number] {
+  height: 4rem;
+  padding: 1em;
+}
+
+input[type=checkbox] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.15rem;
+}
+
+input:disabled {
+  background-color: transparentize($colorWhitePurple, 0.5);
+  border-color: transparentize($colorBlackberry, 0.75);
+  cursor: not-allowed;
+}
+
+label {
+  font-family: $headingsFamily;
+  font-size: $bodySizeS;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  font-family: $headingsFamily;
+  font-size: $bodySizeS;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.4em 0.8em;
+}
+
+td {
+  border-top: 0.1rem solid transparentize($colorPurpleOpacity, 0.85);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.stat {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  & > *:nth-child(1) {
+    font-size: $bodySizeS;
+    font-weight: 400;
+  }
+
+  & > *:nth-child(2) {
+    align-self: center;
+  }
+}

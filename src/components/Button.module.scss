@@ -1,0 +1,79 @@
+@import '../styles/vars.scss';
+
+.button {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  font-family: $bodyFamily;
+  font-weight: 400;
+  font-size: $bodySizeM;
+  text-decoration: none;
+  border: 0.1rem solid $colorBlackberry;
+  border-radius: $radiusButton;
+  background-color: $colorMint;
+  color: $colorBlackberry;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    font-weight: 300;
+    border-color: $colorPurpleOpacity;
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Mode modifiers
+  
+  &ModeGhost {
+    background-color: transparent;
+  }
+
+  &ModeAlert {
+    background-color: $colorRaspberry;
+    border-color: darken($colorRaspberry, 30%);
+    color: white;
+  }
+
+  &ModeSelected {
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    box-shadow: 0.2rem 0.2rem 0rem $colorRaspberry inset, -0.2rem -0.2rem 0rem $colorRaspberry inset;
+    border-color: $colorRaspberry !important;
+  }
+
+  // Size modifiers
+
+  &SizeS {
+    padding: 0.2em 0.8em;
+    font-size: $bodySizeS;
+  }
+
+  &SizeL {
+    padding: 1em 1.6em;
+    font-size: $bodySizeM;
+    font-weight: 600;
+  }
+
+  &Fill {
+    width: 100%;
+  }
+
+  // Gap between nested elements
+
+  & * + * {
+    margin-left: 0.5em;
+  }
+
+  // Gap between sibling components
+
+  & + .button {
+    margin-left: 0.4em;
+  }
+}

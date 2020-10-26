@@ -1,0 +1,41 @@
+@import '../styles/vars.scss';
+
+.withHelper {
+  display: inline-block;
+  padding-right: 1em;
+  border: 0.1rem solid $colorBlackberry;
+  font-size: $bodySizeS;
+  color: $colorBlackberry;
+
+  // Reset input
+  & > input {
+    border: 0 none;
+  }
+
+  // Helper span
+  & > span {
+    font-family: $bodyFamily;
+  }
+}
+
+// Size modifiers
+
+.XSmall {
+  max-width: 8rem;
+  width: 100%;
+}
+
+.Small {
+  max-width: 12.5rem;
+  width: 100%;
+}
+
+.Medium {
+  max-width: 22.5rem;
+  width: 100%;
+}
+
+.Large {
+  max-width: 40rem;
+  width: 100%;
+}

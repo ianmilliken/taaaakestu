@@ -1,0 +1,79 @@
+@mixin gap($property, $negate: false) {
+  #{$property}: $gap;
+
+  &--none {
+    #{$property}: 0;
+  }
+
+  &--auto {
+    #{$property}: auto;
+  }
+
+  &--s {
+    #{$property}: if($negate, -$gapS, $gapS);
+  }
+
+  &--xs {
+    #{$property}: if($negate, -$gapXs, $gapXs);
+  }
+
+  &--xxs {
+    #{$property}: if($negate, -$gapXxs, $gapXxs);
+  }
+
+  &--l {
+    #{$property}: if($negate, -$gapL, $gapL);
+  }
+
+  &--xl {
+    #{$property}: if($negate, -$gapXl, $gapXl);
+  }
+
+  &--xxl {
+    #{$property}: if($negate, -$gapXxl, $gapXxl);
+  }
+}
+
+/* Gaps */
+
+.gap {
+  @include gap(margin);
+}
+
+.gap-left {
+  @include gap(margin-left);
+}
+
+.gap-right {
+  @include gap(margin-right);
+}
+
+.gap-top {
+  @include gap(margin-top);
+}
+
+.gap-bottom {
+  @include gap(margin-bottom);
+}
+
+/* Pads */
+
+.pad {
+  @include gap(padding);
+}
+
+.pad-left {
+  @include gap(padding-left);
+}
+
+.pad-right {
+  @include gap(padding-right);
+}
+
+.pad-top {
+  @include gap(padding-top);
+}
+
+.pad-bottom {
+  @include gap(padding-bottom);
+}

@@ -1,0 +1,60 @@
+/* 01 ::: Colors */
+
+// Primary Colors
+$colorBlackberry: #251c4d;
+$colorMint: #5af1c8;
+$colorRaspberry: #fc3782;
+
+// Secondary Colors
+$colorApple: #3aa838;
+$colorStrawberry: #cf0a3c;
+$colorBlueberry: #0679c6;
+
+// Neutral Colors
+$colorPurpleOpacity: #797194;
+$colorHover: #e6e2f7;
+$colorWhitePurple: #f6f6fc;
+
+// Component Colors
+$colorBorder: transparentize($colorPurpleOpacity, 0.85);
+
+
+/* 02 ::: Typography */
+@font-face {
+  font-family: 'Apercu Light';
+  src: local('Apercu Light'),
+       url('../fonts/apercu-light-pro.woff2') format('woff2');
+       font-display: auto;
+}
+
+@font-face {
+  font-family: 'Apercu Medium';
+  src: local('Apercu Medium'),
+       url('../fonts/apercu-medium-pro.woff2') format('woff2');
+       font-display: auto;
+}
+
+$bodyFamily: 'Apercu Light', sans-serif;
+$headingsFamily: 'Apercu Medium', sans-serif;
+
+$bodySizeM: 1.7rem;
+$bodySizeS: 1.5rem;
+$bodySizeXs: 1.3rem;
+
+$h1Size: 3.6rem;
+$h2Size: 3rem;
+$h3Size: 2.4rem;
+$h4Size: 2rem;
+$h5Size: 1.8rem;
+
+/* 03 ::: Box Model */
+$radiusButton: 0.4rem;
+
+/* 04 ::: Gaps */
+$gap: 1.6rem;
+$gapXxs: $gap * 0.2;
+$gapXs: $gap * 0.5;
+$gapS: $gap * 0.8;
+$gapL: $gap * 1.5;
+$gapXl: $gap * 2;
+$gapXxl: $gap * 3;
