@@ -40,7 +40,7 @@
     margin: 0;
     opacity: 0;
 
-    &:checked ~ .checkbox__box {
+    &:checked ~ .checkboxBox {
       border-color: $colorRaspberry;
       color: $colorRaspberry;
     }
