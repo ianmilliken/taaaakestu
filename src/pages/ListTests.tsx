@@ -19,6 +19,7 @@ import { getAllSSLTests, deleteSSLTest } from '../services/api/sslTests';
 const ListTests: React.FC = () => {
   const history = useHistory();
   const [tests, setTests] = useState<SSLTestResult[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const keyCount = (key: keyof SSLTestResult) => {
     return tests.reduce((acc, entry) => {
@@ -43,6 +44,7 @@ const ListTests: React.FC = () => {
   useEffect(() => {
     getAllSSLTests().then((nextTests) => {
       setTests(nextTests);
+      setLoading(false);
     });
   }, []);
 
@@ -83,71 +85,76 @@ const ListTests: React.FC = () => {
           </div>
         </section>
 
-        <section className={styles.colMain}>
-          <div className="gap-top--xl" />
-          <Card>
-            {tests && tests.length > 0 ? (
-              <table>
-                <colgroup>
-                  <col style={{ width: 'auto' }} />
-                  <col style={{ width: 'auto' }} />
-                  <col style={{ width: '20rem' }} />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>Status</th>
-                    <th>Domain</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tests.map((entry) => (
-                    <tr key={entry.test_id}>
-                      <td>{status(entry)}</td>
-                      <td>
-                        <a href={entry.url} target="_blank" rel="noreferrer">
-                          <FontAwesomeIcon icon={faExternalLinkAlt} />
-                          <span className="gap-left--xs">{entry.url}</span>
-                        </a>
-                      </td>
-                      <td>
-                        <Button
-                          size="small"
-                          onClick={() =>
-                            history.push(`/edit-test/${entry.test_id}`)
-                          }
-                        >
-                          <FontAwesomeIcon icon={faEdit} />
-                          <span>Edit</span>
-                        </Button>
-                        <Button
-                          size="small"
-                          mode="alert"
-                          onClick={() => deleteTest(entry.test_id)}
-                        >
-                          <FontAwesomeIcon icon={faTrashAlt} />
-                          <span>Delete</span>
-                        </Button>
-                      </td>
+        {!loading && (
+          <section className={styles.colMain}>
+            <div className="gap-top--xl" />
+            <Card>
+              {tests && tests.length > 0 ? (
+                <table>
+                  <colgroup>
+                    <col style={{ width: 'auto' }} />
+                    <col style={{ width: 'auto' }} />
+                    <col style={{ width: '20rem' }} />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Status</th>
+                      <th>Domain</th>
+                      <th>Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <div className="pad--xl text-center">
-                <h1>SSL Monitoring</h1>
-                <p className="gap-bottom--l">
-                  Receive expiration reminders and get alerts when something
-                  goes wrong.
-                </p>
-                <Button size="large" onClick={() => history.push('/add-test')}>
-                  <FontAwesomeIcon icon={faPlusSquare} />
-                  <span>Add a new SSL Test</span>
-                </Button>
-              </div>
-            )}
-          </Card>
-        </section>
+                  </thead>
+                  <tbody>
+                    {tests.map((entry) => (
+                      <tr key={entry.test_id}>
+                        <td>{status(entry)}</td>
+                        <td>
+                          <a href={entry.url} target="_blank" rel="noreferrer">
+                            <FontAwesomeIcon icon={faExternalLinkAlt} />
+                            <span className="gap-left--xs">{entry.url}</span>
+                          </a>
+                        </td>
+                        <td>
+                          <Button
+                            size="small"
+                            onClick={() =>
+                              history.push(`/edit-test/${entry.test_id}`)
+                            }
+                          >
+                            <FontAwesomeIcon icon={faEdit} />
+                            <span>Edit</span>
+                          </Button>
+                          <Button
+                            size="small"
+                            mode="alert"
+                            onClick={() => deleteTest(entry.test_id)}
+                          >
+                            <FontAwesomeIcon icon={faTrashAlt} />
+                            <span>Delete</span>
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div className="pad--xl text-center">
+                  <h1>SSL Monitoring</h1>
+                  <p className="gap-bottom--l">
+                    Receive expiration reminders and get alerts when something
+                    goes wrong.
+                  </p>
+                  <Button
+                    size="large"
+                    onClick={() => history.push('/add-test')}
+                  >
+                    <FontAwesomeIcon icon={faPlusSquare} />
+                    <span>Add a new SSL Test</span>
+                  </Button>
+                </div>
+              )}
+            </Card>
+          </section>
+        )}
       </Container>
     </Layout>
   );
